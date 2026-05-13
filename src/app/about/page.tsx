@@ -92,8 +92,8 @@ export default function About() {
             >
               <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80"
-                  alt="Aisha — career coach"
+                  src="/aisha.jpg"
+                  alt="Aisha — career coach with an HR background"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-secondary/10" />

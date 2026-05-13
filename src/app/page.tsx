@@ -177,8 +177,8 @@ export default function Home() {
           >
             <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80"
-                alt="Career coaching session with Aisha"
+                src="/aisha.jpg"
+                alt="Aisha — career coach with an HR background"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-transparent" />
