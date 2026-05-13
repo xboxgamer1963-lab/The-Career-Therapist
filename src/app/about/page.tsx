@@ -3,52 +3,37 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
-const values = [
+const beliefs = [
   {
-    icon: "diamond",
-    title: "Precision Selection",
-    desc: "We treat talent acquisition as an editorial process, identifying only the most resonant candidates for high-stakes roles."
+    icon: "psychology",
+    title: "Strategy, not slogans",
+    desc: "Good career coaching isn't about telling you what to do. It's about helping you understand your options, build a strategy that fits your life, and giving you the tools and confidence to execute it.",
   },
   {
-    icon: "gavel",
-    title: "Ethical Governance",
-    desc: "Upholding global standards with an uncompromising commitment to integrity and strategic transparency."
+    icon: "verified",
+    title: "Honest feedback, always",
+    desc: "I'll always give you honest feedback — even when it's not what you want to hear. Because honest feedback is what helps you move forward.",
   },
   {
-    icon: "insights",
-    title: "Data Wisdom",
-    desc: "Translating complex HR metrics into actionable dossiers that drive executive decision-making."
+    icon: "favorite",
+    title: "In your corner",
+    desc: "Whether you're celebrating an offer or dealing with another rejection, we'll keep going until you get to where you want to be.",
   },
   {
-    icon: "public",
-    title: "Global Resonance",
-    desc: "Designing cultures that speak across borders, fostering diversity through unified strategic vision."
-  }
+    icon: "diversity_3",
+    title: "Insider knowledge",
+    desc: "Years in HR and recruiting gave me a clear understanding of how employers actually think, hire, and promote. That knowledge gets handed to you.",
+  },
 ];
 
-const leaders = [
-  {
-    name: "Dr. Elena Sterling",
-    role: "STRATEGIC VISIONARY",
-    tag: "FOUNDING PARTNER",
-    desc: "Former CHRO of Global Tech Synergies, Dr. Sterling has spent 25 years redefining corporate governance and leadership development on three continents.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDllUgK-8YE94knwCuTrbQPJOy0hAU_l1fsHwBP5Q5SbiuI1JPSgWR4o7H8OpOg3xQBDSpv5nHirQAzvy5bdCNNnu5Ucu1vOOkOZ14dZIHtyZeKrZoKkiL5sDW_Ws-ehuZe3Rbg2mT9oRsElNBmpOrj12ZqjbO0Ez6T5KL0t1AcY5t6PpB-v72VcB0AC53Gn0IwXtTKR6aJkFd-ij4onEm2OhQUn2tgyIRjBZ7J4sWttGTQ4Po3L0JsZVi3_AJyDqjrXoOYvj2eiFlh"
-  },
-  {
-    name: "Marcus Thorne",
-    role: "DATA ARCHITECT",
-    tag: "CHIEF ANALYST",
-    desc: "Specializing in algorithmic talent mapping, Marcus brings a rigorous analytical framework to human capital evaluation and retention strategies.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC4iEV4AG7OhTA15Oz-y7o6chZJqZDRFFP3HZok2-dowTCxqny74WKfb0O_JC-BEu_AP1JxD5n399GJjUUWe04G4NH6e3LSziRbo5TIcb5Ipu15NrXRcQI3knReE17Gx2mSgkK1gknhjIzS9TFsAvgnXwSlD0bTmIO_xdWxbNb952mgirmSKTi7-3I0T1tACZBXPeBvxziMjBRHjkriIm0lxob_XgYmPDd61HO3N0ftFfDRh6qChQDsIygQ3Ik6Cwqfmdx0CL92bWRG"
-  },
-  {
-    name: "Julianne Vancover",
-    role: "CULTURAL CURATOR",
-    tag: "DIRECTOR OF CULTURE",
-    desc: "Julianne focuses on the intersection of organizational identity and employee experience, crafting workplaces that attract elite global talent.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDhte3Hpe1uFWwQ_yuUKdlAN-IrFm8JnIsHiQLkEZCRlsdMUeR7KkPBZEhXZHmBQKa8vXzpqnXphKrDyCRS2BJWlPu0M9ciNRnSPZXUjvdm-9RFFcNHAMQtfl4T3oMYI7QIVm7sok7Ie672M-pGV8gPIcG3PYboZp8hBt5NsKZzR82aev7zTQUl8D7DrQuOc3K6tInR8FHzsfxxCAeOzN-flv8kXy1jolrPwyFQb4XkIVD0_JQzHtPWE4FPl-61uc5bdPicQ3HoEGdF"
-  }
+const clients = [
+  "Job seekers who've been applying for weeks (or months) without traction",
+  "Professionals who are ready for a promotion but don't know how to make it happen",
+  "People who've just been made redundant and need to move quickly",
+  "Professionals considering a career change who want to do it properly",
+  "Anyone who feels stuck and wants an honest outside perspective",
 ];
 
 export default function About() {
@@ -57,161 +42,197 @@ export default function About() {
       <Navbar />
 
       <main className="pt-32">
-        <section className="max-w-[1440px] mx-auto px-6 md:px-12 pb-24">
-          <div className="grid grid-cols-12 gap-8">
+        {/* Hero */}
+        <section className="relative max-w-[1440px] mx-auto px-6 md:px-12 pb-24">
+          {/* Background decoration — clipped separately so floating badges aren't cut off */}
+          <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+            <div className="absolute top-10 right-0 w-[500px] h-[500px] bg-secondary/15 rounded-full blur-[120px]" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/8 rounded-full blur-[100px]" />
+          </div>
+
+          <div className="grid grid-cols-12 gap-8 lg:gap-12 items-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="col-span-12 md:col-span-7"
+              className="col-span-12 lg:col-span-7"
             >
-              <h1 className="font-serif text-6xl md:text-8xl font-black text-primary tracking-tighter leading-[0.9] mb-12">
-                Architecting <span className="italic text-secondary">High-Performance</span> Cultures.
+              <div className="inline-flex items-center gap-2 bg-secondary-container/60 px-4 py-2 rounded-full mb-8">
+                <span className="material-symbols-outlined text-secondary text-base">person</span>
+                <span className="text-primary font-bold text-xs tracking-widest uppercase">
+                  About Aisha — Career Coach
+                </span>
+              </div>
+              <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-black text-primary tracking-tight leading-[1.02] mb-10">
+                I've been on the other side of the hiring table.{" "}
+                <span className="relative inline-block">
+                  <span className="italic text-secondary">Now I'm on yours.</span>
+                  <svg className="absolute -bottom-3 left-0 w-full" viewBox="0 0 400 14" fill="none" preserveAspectRatio="none">
+                    <path d="M2 8 Q100 1 200 8 T398 7" stroke="currentColor" strokeWidth="4" strokeLinecap="round" className="text-secondary" />
+                  </svg>
+                </span>
               </h1>
-              <p className="text-xl md:text-2xl text-on-surface-variant font-light max-w-2xl leading-relaxed">
-                At The Career Therapist, we don't just manage human resources. We curate excellence. Our approach combines surgical precision with deep institutional wisdom to transform organizational landscapes.
-              </p>
+              <div className="space-y-5 text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-2xl">
+                <p>
+                  My name is Aisha, and I've spent a significant part of my career in HR and recruiting — reading CVs, sitting in on interviews, making hiring recommendations, and watching how promotion decisions get made behind closed doors.
+                </p>
+                <p>
+                  I've seen incredible professionals get overlooked because of things they didn't even know were hurting their chances. I've watched people undersell themselves in interviews for roles they were perfectly qualified for. I've seen CVs that should have been interview-getters end up in the reject pile.
+                </p>
+                <p className="text-primary font-medium italic font-serif text-2xl leading-snug">
+                  Most career advice is written from the outside looking in. Mine comes from the inside.
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="col-span-12 md:col-span-5 flex items-end"
+              className="col-span-12 lg:col-span-5 relative"
             >
-              <div className="bg-surface-container p-8 rounded-xl w-full">
-                <div className="text-secondary text-5xl font-serif font-bold mb-2">20+</div>
-                <div className="text-on-surface font-bold text-lg mb-4">Years of Authority</div>
-                <p className="text-on-surface-variant text-sm">
-                  Decades of advising Fortune 500 boards on talent governance, executive succession, and global strategy implementation.
-                </p>
+              <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80"
+                  alt="Aisha — career coach"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-secondary/10" />
               </div>
+
+              {/* Floating credential card */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+                className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl max-w-[280px] border border-outline-variant/10"
+              >
+                <p className="text-secondary text-xs uppercase tracking-widest font-bold mb-2">An insider's view</p>
+                <p className="font-serif text-3xl font-black text-primary mb-1">HR + Recruiting</p>
+                <p className="text-on-surface-variant text-xs leading-snug">
+                  Years inside the rooms where hiring and promotion decisions are made.
+                </p>
+              </motion.div>
+
+              {/* Floating "1-on-1" badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8, rotate: 8 }}
+                animate={{ opacity: 1, scale: 1, rotate: -6 }}
+                transition={{ delay: 0.8 }}
+                className="absolute -top-4 -right-4 bg-primary text-white px-5 py-4 rounded-2xl shadow-xl"
+              >
+                <p className="text-[10px] uppercase tracking-widest font-bold text-secondary-container">Always</p>
+                <p className="font-serif text-xl font-black">1-on-1</p>
+              </motion.div>
             </motion.div>
           </div>
         </section>
 
+        {/* Background */}
         <section className="bg-surface-container-low py-24">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-            <div className="grid grid-cols-12 gap-16">
-              <div className="col-span-12 lg:col-span-4">
-                <h2 className="font-serif text-4xl font-bold text-primary mb-6">Our Mission</h2>
-                <div className="w-16 h-1 bg-secondary mb-8" />
-                <p className="text-lg leading-relaxed text-on-surface-variant italic">
-                  "To elevate the human capital experience to a strategic art form, ensuring that every placement and policy is a catalyst for sustainable, global excellence."
-                </p>
-              </div>
-
-              <div className="col-span-12 lg:col-span-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {values.map((val, idx) => (
-                    <motion.div
-                      key={idx}
-                      whileHover={{ y: -5 }}
-                      className="bg-white p-10 shadow-sm border border-outline-variant/10"
-                    >
-                      <span className="material-symbols-outlined text-secondary text-4xl mb-4">{val.icon}</span>
-                      <h3 className="font-serif text-2xl font-bold mb-4 text-primary">{val.title}</h3>
-                      <p className="text-on-surface-variant">{val.desc}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
+          <div className="max-w-[1100px] mx-auto px-6 md:px-12">
+            <span className="text-secondary font-bold tracking-widest text-xs uppercase mb-4 block">
+              Where I've come from
+            </span>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-10 leading-tight">
+              The patterns that made me start coaching.
+            </h2>
+            <div className="space-y-6 text-lg text-on-surface-variant leading-relaxed">
+              <p>
+                After years of working in HR and recruiting across different industries, I started to see the same patterns playing out over and over. Talented professionals stuck in the wrong roles. People who deserved promotions but couldn't get them. Candidates who had everything on paper but kept getting overlooked.
+              </p>
+              <p>
+                I started coaching because I realised I had something genuinely useful to offer: not just career advice, but a clear understanding of how employers think, what they're looking for, and how to position yourself to get what you actually want.
+              </p>
+              <p>
+                I now work 1-on-1 with professionals across all industries and career stages — from graduates figuring out their first steps to senior leaders planning their next big move.
+              </p>
             </div>
           </div>
         </section>
 
+        {/* Approach / Beliefs */}
         <section className="py-24 max-w-[1440px] mx-auto px-6 md:px-12">
-          <div className="mb-20">
-            <h2 className="font-serif text-5xl font-bold text-primary mb-4">Meet the Leadership</h2>
-            <p className="text-on-surface-variant text-lg">
-              The minds behind the dossiers. Intellectual authority meets executive experience.
-            </p>
-          </div>
+          <div className="grid grid-cols-12 gap-16 mb-16">
+            <div className="col-span-12 lg:col-span-5">
+              <span className="text-secondary font-bold tracking-widest text-xs uppercase mb-4 block">
+                My approach
+              </span>
+              <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
+                What you get when we work together.
+              </h2>
+              <div className="w-16 h-1 bg-secondary mb-8" />
+              <p className="text-lg leading-relaxed text-on-surface-variant">
+                Good career coaching is part strategy, part feedback, part accountability. Here's what to expect from me.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {leaders.map((leader, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="group"
-              >
-                <div className="aspect-[4/5] bg-surface-container-high mb-6 overflow-hidden relative">
-                  <img
-                    alt={leader.name}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                    src={leader.img}
-                  />
-                  <div className="absolute top-4 left-4 bg-secondary text-white px-3 py-1 text-xs font-bold tracking-widest">
-                    {leader.tag}
-                  </div>
-                </div>
-                <h4 className="font-serif text-2xl font-bold text-primary">{leader.name}</h4>
-                <p className="text-secondary font-bold text-sm tracking-widest mb-4">{leader.role}</p>
-                <p className="text-on-surface-variant text-sm leading-relaxed">
-                  {leader.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        <section className="py-24 bg-primary text-white">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-12 gap-12 items-center">
-            <div className="col-span-12 md:col-span-6">
-              <h2 className="font-serif text-5xl font-bold mb-8 text-secondary-container">Our Proven Track Record</h2>
-              <div className="space-y-8">
-                {[
-                  { num: "01", title: "98% Retention in Key Roles", desc: "Our placements are curated for long-term strategic fit, drastically reducing turnover at the executive level." },
-                  { num: "02", title: "$40M+ In Strategic Savings", desc: "Optimized workforce planning and audit-ready compliance frameworks for our Fortune 500 partners." },
-                  { num: "03", title: "Global Scale-Up Authority", desc: "Successfully guided the talent expansion of 15+ unicorns into European and Asian markets." }
-                ].map((track, idx) => (
-                  <div key={idx} className="flex gap-6 items-start">
-                    <span className="text-secondary-container text-3xl font-serif font-bold">{track.num}</span>
-                    <div>
-                      <h4 className="font-bold text-xl mb-2">{track.title}</h4>
-                      <p className="text-blue-100/70 font-light">{track.desc}</p>
-                    </div>
-                  </div>
+            <div className="col-span-12 lg:col-span-7">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {beliefs.map((val, idx) => (
+                  <motion.div
+                    key={idx}
+                    whileHover={{ y: -5 }}
+                    className="bg-white p-8 shadow-sm border border-outline-variant/10 rounded-lg"
+                  >
+                    <span className="material-symbols-outlined text-secondary text-3xl mb-4">{val.icon}</span>
+                    <h3 className="font-serif text-xl font-bold mb-3 text-primary">{val.title}</h3>
+                    <p className="text-on-surface-variant text-sm leading-relaxed">{val.desc}</p>
+                  </motion.div>
                 ))}
               </div>
             </div>
+          </div>
+        </section>
 
-            <div className="col-span-12 md:col-span-6">
-              <div className="relative p-12 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10">
-                <span className="material-symbols-outlined text-6xl text-secondary-container mb-6" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  format_quote
-                </span>
-                <p className="text-2xl font-serif italic leading-relaxed mb-8">
-                  "The Career Therapist didn't just find us a new leadership team; they rebuilt our cultural foundation. Their authority in the HR space is unparalleled."
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
-                    <img alt="CEO" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApf0d9UHm8iMCyquCqs8VKweuyPJkQYGMIRZ_OX4I38bO7di2sWjzBu-jKayYjUGTE5VqO8DnWQhtk2_6ffNouNBPaSaaIKt_mSXufTHOQIfhRUzILJMFfg0Nyzcap3tVAycZhr17vcbHkdNDflp00e_DRo5VR7UWxvr_7xh00MrhJD_b785Xpd9XiQpugndE13FqGAfytOOmtScO8l2pA4FiVuseZH2qCzoXKyshzgrQ0maR1Ok41NWQcmYHz_eHI92W_h4_5gs3w" />
-                  </div>
-                  <div>
-                    <div className="font-bold">Alistair Beaumont</div>
-                    <div className="text-xs text-secondary-container tracking-widest uppercase">CEO, Beaumont Global</div>
-                  </div>
-                </div>
-              </div>
+        {/* Who I work with */}
+        <section className="py-24 bg-primary text-white">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-12 gap-12 items-start">
+            <div className="col-span-12 md:col-span-5">
+              <span className="text-secondary-container font-bold tracking-widest text-xs uppercase mb-4 block">
+                My clients
+              </span>
+              <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                Who I work with.
+              </h2>
+              <p className="text-blue-100/80 text-lg leading-relaxed">
+                I work with professionals at every stage of their career. I work fully online via video call, which means I can support professionals wherever they are in the world.
+              </p>
+            </div>
+
+            <div className="col-span-12 md:col-span-7 space-y-4">
+              {clients.map((client, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.08 }}
+                  className="flex items-start gap-4 p-5 bg-white/5 backdrop-blur rounded-lg border border-white/10"
+                >
+                  <span className="material-symbols-outlined text-secondary-container mt-0.5 shrink-0">check_circle</span>
+                  <p className="leading-relaxed">{client}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
+        {/* Final CTA */}
         <section className="py-32 bg-surface text-center px-6 md:px-12">
-          <h2 className="font-serif text-5xl font-bold text-primary mb-8 max-w-4xl mx-auto">
-            Ready to Curate Your Organization's Future?
+          <span className="text-secondary font-bold tracking-widest text-xs uppercase mb-4 block">
+            Ready to get started?
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-6 max-w-3xl mx-auto leading-tight">
+            Book a free 20-minute discovery call.
           </h2>
-          <p className="text-on-surface-variant text-xl mb-12 max-w-2xl mx-auto font-light">
-            Join the ranks of the world's most intentionally built companies. Let's discuss your strategic dossier.
+          <p className="text-on-surface-variant text-lg mb-10 max-w-2xl mx-auto">
+            We'll talk about where you are, what you need, and whether working together is the right fit. No obligation.
           </p>
           <Link
             href="/contact"
-            className="bg-secondary text-white px-10 py-4 rounded-lg font-black text-lg transition-all shadow-xl shadow-secondary/20 hover:scale-105 inline-block"
+            className="bg-secondary text-white px-10 py-4 rounded-lg font-bold text-lg transition-all shadow-xl shadow-secondary/20 hover:scale-105 inline-block"
           >
-            Book a Consultation
+            Book a Free Discovery Call
           </Link>
         </section>
       </main>
@@ -220,5 +241,3 @@ export default function About() {
     </main>
   );
 }
-
-import Link from "next/link";

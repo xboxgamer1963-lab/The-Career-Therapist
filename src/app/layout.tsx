@@ -15,16 +15,26 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "The Career Therapist | Expert HR Consulting for Modern Enterprises",
-  description: "Aligning talent strategy with organizational performance. Partner with The Career Therapist for bespoke HR transformations, leadership development, and culture design.",
-  keywords: ["HR Consulting", "Strategic HR", "Talent Planning", "Leadership Development", "Culture Design", "Employee Engagement"],
-  authors: [{ name: "The Career Therapist" }],
+  title: "Career Coach | Find a Job, Get Promoted & Love Your Work | Aisha",
+  description:
+    "Work 1-on-1 with Aisha — a career coach with an HR background — to land your next job, earn a promotion, or navigate a career change. Real insight. Real results.",
+  keywords: [
+    "career coach",
+    "1-on-1 career coaching",
+    "job search help",
+    "get promoted",
+    "career change",
+    "career advice",
+    "career coach with HR background",
+  ],
+  authors: [{ name: "Aisha — The Career Therapist" }],
   openGraph: {
-    title: "The Career Therapist | Expert HR Consulting",
-    description: "High-end HR consulting focused on human-centric, data-driven strategies.",
+    title: "Career Coach | Find a Job, Get Promoted & Love Your Work | Aisha",
+    description:
+      "Work 1-on-1 with Aisha — a career coach with an HR background — to land your next job, earn a promotion, or navigate a career change.",
     url: "https://thecareertherapist.com",
     siteName: "The Career Therapist",
-    locale: "en_US",
+    locale: "en_GB",
     type: "website",
   },
   icons: {

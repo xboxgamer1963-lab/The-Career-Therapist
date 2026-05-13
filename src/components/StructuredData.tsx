@@ -1,96 +1,85 @@
 export default function StructuredData() {
-  const businessSchema = {
+  const personSchema = {
     "@context": "https://schema.org",
-    "@type": "ConsultingBusiness",
-    "name": "The Career Therapist",
-    "alternateName": "The Career Therapist Consulting",
-    "description": "Expert HR Consulting for Modern Enterprises. Aligning talent strategy with organizational performance.",
-    "url": "https://thecareertherapist.com",
-    "logo": "https://thecareertherapist.com/logo.png",
-    "telephone": "+1-212-555-0198",
-    "email": "curator@strategic-consult.com",
-    "priceRange": "$$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "775 Park Avenue, Suite 1200",
-      "addressLocality": "New York",
-      "addressRegion": "NY",
-      "postalCode": "10021",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 40.7712,
-      "longitude": -73.9634
-    },
-    "areaServed": "Global",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "HR Consulting Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Strategic Talent Planning"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Culture Design"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Leadership Development"
-          }
-        }
-      ]
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "18:00"
-    }
+    "@type": "Person",
+    name: "Aisha",
+    jobTitle: "Career Coach",
+    url: "https://thecareertherapist.com/about",
+    image: "https://thecareertherapist.com/logo.png",
+    description:
+      "Career coach with a background in HR and recruiting. Helps professionals land jobs, earn promotions, recover from redundancy, and change careers.",
+    knowsAbout: [
+      "Career Coaching",
+      "Job Search",
+      "Promotion Strategy",
+      "Redundancy Support",
+      "Career Change",
+      "HR and Recruiting",
+      "Interview Coaching",
+      "Salary Negotiation",
+    ],
+    sameAs: ["https://thecareertherapist.com"],
   };
 
-  const faqSchema = {
+  const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How do you approach a new HR transformation project?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We begin with a deep-dive immersion into your current culture and business objectives. We curate a strategy that aligns your people processes with your long-term vision."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you support our global offices with localized strategies?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we specialize in scaling HR strategies while respecting local cultural nuances and labor laws across international markets."
-        }
-      }
-    ]
+    "@type": "Service",
+    name: "1-on-1 Career Coaching",
+    provider: {
+      "@type": "Person",
+      name: "Aisha",
+    },
+    description:
+      "Personal 1-on-1 career coaching for job search, promotion, redundancy recovery, and career change — delivered online by Aisha, a coach with an HR background.",
+    areaServed: "Worldwide",
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceType: "Online",
+    },
+    serviceType: "Career Coaching",
+    url: "https://thecareertherapist.com/coaching",
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "The Career Therapist",
+    description:
+      "1-on-1 career coaching with Aisha — a coach with an HR background helping professionals find jobs, get promoted, and change careers.",
+    url: "https://thecareertherapist.com",
+    logo: "https://thecareertherapist.com/logo.png",
+    email: "hello@thecareertherapist.com",
+    areaServed: "Worldwide",
+    founder: {
+      "@type": "Person",
+      name: "Aisha",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Career Coaching Services",
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Job Search Coaching" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Promotion Coaching" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Redundancy & Layoff Coaching" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Career Change Coaching" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "The Career Alignment Club" } },
+      ],
+    },
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
     </>
   );
