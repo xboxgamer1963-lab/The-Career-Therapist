@@ -5,7 +5,6 @@ import FinalCTA from '@/components/FinalCTA'
 const packages = [
   {
     name: 'The Power Hour',
-    price: '$225',
     duration: 'Single session',
     desc: 'A focused 60-minute deep dive. Perfect when you have one specific problem you need solved — a resume, a tricky conversation, a single interview, a job offer you\'re weighing up.',
     includes: [
@@ -18,7 +17,6 @@ const packages = [
   },
   {
     name: 'The Full Journey',
-    price: '$1,250',
     duration: '6 sessions over 3 months',
     desc: 'The full program. We work together over three months to land you somewhere genuinely better — a new role, a promotion, a clear career pivot, or a strategy that finally works.',
     includes: [
@@ -33,7 +31,6 @@ const packages = [
   },
   {
     name: 'The Quarterly',
-    price: '$595',
     duration: '3 sessions over 6 weeks',
     desc: 'A focused six-week block. The right fit when you know the goal but need a coach, accountability, and a clear plan to get there fast.',
     includes: [
@@ -76,15 +73,17 @@ export default function Coaching() {
       {/* Packages */}
       <section className="bg-white border-y border-border">
         <div className="max-w-7xl mx-auto px-6 py-24">
-          <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">Coaching Packages</p>
-          <h2 className="font-serif text-4xl lg:text-5xl text-charcoal mb-12">Pick the package that fits where you are.</h2>
+          <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">Coaching Engagements</p>
+          <h2 className="font-serif text-4xl lg:text-5xl text-charcoal mb-4">Pick the engagement that fits where you are.</h2>
+          <p className="text-muted leading-relaxed max-w-2xl mb-12">
+            Every engagement is private, high-touch, and structured around your goals. Investment is shared on the discovery call once we&apos;ve determined the right fit.
+          </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {packages.map(p => (
               <div key={p.name} className={`rounded-2xl p-8 flex flex-col border ${p.featured ? 'bg-charcoal text-cream border-charcoal' : 'bg-cream border-border'}`}>
                 {p.featured && <span className="inline-block self-start bg-sage text-cream text-xs font-semibold px-3 py-1 rounded-full mb-4">Most popular</span>}
                 <h3 className={`font-serif text-2xl mb-1 ${p.featured ? 'text-cream' : 'text-charcoal'}`}>{p.name}</h3>
-                <p className={`text-xs uppercase tracking-widest mb-4 ${p.featured ? 'text-cream/60' : 'text-muted'}`}>{p.duration}</p>
-                <p className={`font-serif text-4xl mb-6 ${p.featured ? 'text-cream' : 'text-charcoal'}`}>{p.price}</p>
+                <p className={`text-xs uppercase tracking-widest mb-6 ${p.featured ? 'text-cream/60' : 'text-muted'}`}>{p.duration}</p>
                 <p className={`text-sm leading-relaxed mb-6 ${p.featured ? 'text-cream/80' : 'text-muted'}`}>{p.desc}</p>
                 <ul className="space-y-2 mb-8 flex-1">
                   {p.includes.map(i => (

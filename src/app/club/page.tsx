@@ -42,14 +42,13 @@ export default function Club() {
         </div>
       </section>
 
-      {/* Pricing */}
+      {/* Membership */}
       <section className="max-w-3xl mx-auto px-6 py-24 text-center">
         <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">Membership</p>
-        <h2 className="font-serif text-4xl lg:text-5xl text-charcoal mb-8">Simple monthly pricing.</h2>
+        <h2 className="font-serif text-4xl lg:text-5xl text-charcoal mb-8">Join the next cohort.</h2>
         <div className="border border-border rounded-2xl p-10 bg-white max-w-md mx-auto">
-          <p className="font-serif text-6xl text-charcoal mb-2">$65<span className="text-2xl text-muted">/mo</span></p>
-          <p className="text-muted mb-6">or $650/year — save two months</p>
-          <p className="text-sm text-muted mb-8 leading-relaxed">Cancel anytime. First month is half price for newsletter subscribers. We open membership in cohorts of 25 to keep the community real.</p>
+          <p className="font-serif text-3xl text-charcoal mb-3 leading-snug">A small, deliberate community.</p>
+          <p className="text-muted mb-8 leading-relaxed">We open membership in cohorts of 25 to keep the community real. Add yourself to the waitlist and we&apos;ll share the next open date — along with what&apos;s included and how to join.</p>
           <Link href="/contact" className="inline-flex items-center justify-center w-full gap-2 bg-charcoal text-cream px-7 py-3.5 rounded-full font-medium hover:bg-sage transition-colors">
             Join the Waitlist
           </Link>

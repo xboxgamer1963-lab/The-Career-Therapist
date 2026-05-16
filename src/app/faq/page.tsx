@@ -16,7 +16,7 @@ const groups = [
   {
     section: 'Sessions & pricing',
     items: [
-      { q: 'How much does coaching cost?', a: 'Sessions start at $225 for a one-off Power Hour. The full 3-month program is $1,250. The Quarterly (6 weeks) is $595. Full details on the Coaching page.' },
+      { q: 'How much does coaching cost?', a: 'Investment depends on the engagement that fits you — a single Power Hour, the six-week Quarterly, or the full three-month Journey. Because every situation is different, we share pricing on the free discovery call once we\'ve determined the right fit.' },
       { q: 'How long is each session?', a: 'Each 1-on-1 session is 60 minutes. You\'ll also get a pre-session questionnaire and a written follow-up with action steps after every call.' },
       { q: 'How are sessions held?', a: 'Online — Zoom or Google Meet, your choice. No travel, no logistics. You can do them from your sofa.' },
       { q: 'Can I expense coaching?', a: 'Often, yes. Many employers will fund career or leadership coaching, especially as part of L&D budgets. I provide invoices that work for expensing.' },
