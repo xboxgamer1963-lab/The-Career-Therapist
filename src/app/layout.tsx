@@ -4,15 +4,15 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Career Coach | Find a Job, Get Promoted & Love Your Work | Aisha',
-  description: 'Work 1-on-1 with Aisha — a career coach with an HR background — to land your next job, earn a promotion, or navigate a career change. Real insight. Real results.',
-  keywords: 'career coach, 1-on-1 career coaching, job search help, get promoted, career change',
+  title: 'My Career Therapist | Workplace Strategy & Professional Development',
+  description: 'My Career Therapist helps professionals decode hidden workplace dynamics, build influence, and take control of their careers through strategic career therapy.',
+  keywords: 'career therapist, workplace strategy, professional development, executive communication, workplace politics, career coaching',
   openGraph: {
-    title: 'Career Coach | Find a Job, Get Promoted & Love Your Work | Aisha',
-    description: 'Work 1-on-1 with Aisha — a career coach with an HR background.',
+    title: 'My Career Therapist | Workplace Strategy & Professional Development',
+    description: 'Decode the hidden rules. Build your influence. Take control of your career trajectory.',
     url: 'https://mycareertherapist.com',
-    siteName: 'The Career Therapist',
-    locale: 'en_US',
+    siteName: 'My Career Therapist',
+    locale: 'en_GB',
     type: 'website',
   },
 }

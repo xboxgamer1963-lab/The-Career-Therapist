@@ -3,12 +3,9 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 const navLinks = [
-  { label: 'Work With Me', href: '/coaching' },
-  { label: 'Job Search', href: '/job-search-coaching' },
-  { label: 'Get Promoted', href: '/get-promoted' },
-  { label: 'Laid Off?', href: '/laid-off' },
-  { label: 'Career Change', href: '/career-change' },
-  { label: 'The Club', href: '/club' },
+  { label: 'For Individuals', href: '/coaching' },
+  { label: 'For Organizations', href: '/organizations' },
+  { label: 'Courses & Community', href: '/club' },
   { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
 ]

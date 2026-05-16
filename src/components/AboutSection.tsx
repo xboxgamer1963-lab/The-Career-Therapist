@@ -8,14 +8,14 @@ export default function AboutSection() {
           <Image src="/aisha.jpg" alt="Aisha" fill className="object-cover object-top" />
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">Hi, I&apos;m Aisha</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">What We Do</p>
           <h2 className="font-serif text-4xl lg:text-5xl text-charcoal mb-6 leading-tight">
-            Your career coach with an insider edge.
+            Workplace strategy for professionals who are done being overlooked.
           </h2>
           <div className="space-y-4 text-muted leading-relaxed">
-            <p>I spent years working in HR and recruiting, reading thousands of resumes, sitting in on hiring decisions, and watching brilliant professionals get overlooked for jobs and promotions they absolutely deserved — often for reasons that were entirely fixable.</p>
-            <p>Now I work 1-on-1 with professionals at every stage of their career: people who want to land a better job, finally get the promotion they&apos;ve earned, survive a layoff and come out stronger, or make a career change without starting from zero.</p>
-            <p>I know what employers are actually looking for. And I know how to help you give it to them — on your terms.</p>
+            <p>My Career Therapist is a workplace strategy and professional development practice designed for people who are done being overlooked, confused, or underestimated in their careers.</p>
+            <p>Most professionals are not struggling because they lack capability. They are struggling because they were never taught how work actually functions — how decisions are made, how perception is shaped, and how influence is built inside organizations.</p>
+            <p>I help individuals and organizations translate hidden workplace dynamics into clear, actionable strategy — so performance is no longer wasted, communication becomes precise, and career growth is no longer left to chance.</p>
           </div>
         </div>
       </div>
