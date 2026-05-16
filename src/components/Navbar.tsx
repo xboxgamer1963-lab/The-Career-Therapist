@@ -1,104 +1,69 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+'use client'
+import { useState } from 'react'
+import Link from 'next/link'
 
 const navLinks = [
-  { name: "Work With Me", href: "/coaching" },
-  { name: "Job Search", href: "/job-search-coaching" },
-  { name: "Get Promoted", href: "/get-promoted" },
-  { name: "Laid Off?", href: "/laid-off" },
-  { name: "Career Change", href: "/career-change" },
-  { name: "The Club", href: "/club" },
-  { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
-];
+  { label: 'Work With Me', href: '/coaching' },
+  { label: 'Job Search', href: '/job-search-coaching' },
+  { label: 'Get Promoted', href: '/get-promoted' },
+  { label: 'Laid Off?', href: '/laid-off' },
+  { label: 'Career Change', href: '/career-change' },
+  { label: 'The Club', href: '/club' },
+  { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
+]
 
 export default function Navbar() {
-  const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   return (
-    <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      <nav className="pointer-events-auto bg-white/90 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-200/50 transition-all rounded-[2rem] w-full max-w-7xl">
-        <div className="flex justify-between items-center px-5 py-3">
-          <Link href="/" className="flex items-center shrink-0">
-            <img src="/logo.png" alt="The Career Therapist — Career Coach Aisha" className="h-11 w-auto object-contain" />
+    <>
+      {/* Announce bar */}
+      <div className="bg-sage-light text-sage text-center text-sm py-2 font-medium tracking-wide">
+        Now booking — May 2026
+      </div>
+
+      <nav className="sticky top-0 z-50 bg-cream border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-24">
+          {/* Logo */}
+          <Link href="/">
+            <img src="/logo.png" alt="My Career Therapist" className="h-20 w-auto object-contain" />
           </Link>
 
-          <div className="hidden xl:flex gap-6 items-center">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "font-serif font-bold tracking-tight text-[14px] transition-colors relative whitespace-nowrap",
-                    isActive ? "text-primary" : "text-slate-500 hover:text-primary"
-                  )}
-                >
-                  {link.name}
-                  {isActive && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-secondary-container rounded-full" />
-                  )}
-                </Link>
-              );
-            })}
+          {/* Desktop nav */}
+          <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-charcoal">
+            {navLinks.map(l => (
+              <Link key={l.href} href={l.href} className="hover:text-sage transition-colors">
+                {l.label}
+              </Link>
+            ))}
           </div>
 
-          <div className="flex items-center gap-2">
-            <Link
-              href="/contact"
-              className="hidden sm:inline-block bg-primary text-white px-5 py-2.5 rounded-full font-bold tracking-wide text-sm hover:scale-105 duration-300 ease-out shadow-md whitespace-nowrap"
-            >
+          {/* CTA + hamburger */}
+          <div className="flex items-center gap-4">
+            <Link href="/contact" className="hidden sm:inline-flex items-center bg-charcoal text-cream px-5 py-2 rounded-full text-sm font-medium hover:bg-sage transition-colors">
               Book a Free Call
             </Link>
-            <button
-              onClick={() => setOpen((o) => !o)}
-              className="xl:hidden p-2 text-primary"
-              aria-label="Open menu"
-            >
-              <span className="material-symbols-outlined">{open ? "close" : "menu"}</span>
+            <button onClick={() => setOpen(!open)} className="lg:hidden text-charcoal" aria-label="Toggle menu">
+              <span className="material-icons">{open ? 'close' : 'menu'}</span>
             </button>
           </div>
         </div>
 
+        {/* Mobile menu */}
         {open && (
-          <div className="xl:hidden border-t border-slate-200/50 px-5 py-4 flex flex-col gap-3">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={cn(
-                    "font-serif font-bold text-[15px] py-1",
-                    isActive ? "text-primary" : "text-slate-600"
-                  )}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-2 bg-primary text-white px-5 py-3 rounded-full font-bold text-sm text-center"
-            >
+          <div className="lg:hidden border-t border-border bg-cream px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+            {navLinks.map(l => (
+              <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-charcoal hover:text-sage">
+                {l.label}
+              </Link>
+            ))}
+            <Link href="/contact" onClick={() => setOpen(false)} className="mt-2 inline-flex justify-center bg-charcoal text-cream px-5 py-2 rounded-full hover:bg-sage transition-colors">
               Book a Free Call
             </Link>
           </div>
         )}
       </nav>
-    </div>
-  );
+    </>
+  )
 }

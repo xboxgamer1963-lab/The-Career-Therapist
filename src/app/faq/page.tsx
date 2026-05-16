@@ -1,186 +1,81 @@
-"use client";
+'use client'
+import { useState } from 'react'
+import Link from 'next/link'
+import FinalCTA from '@/components/FinalCTA'
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Link from "next/link";
+const groups = [
+  {
+    section: 'General',
+    items: [
+      { q: 'What does a career coach actually do?', a: 'A career coach helps you navigate key moments in your professional life — finding a new job, earning a promotion, handling a layoff, or changing direction. We provide strategy, accountability, honest feedback, and the kind of support that means you don\'t have to figure it all out alone.' },
+      { q: 'How is Aisha different from other career coaches?', a: 'Aisha has a background in HR and recruiting, which means she has direct experience of how companies hire and promote. This insider perspective is what makes her coaching practical and specific, not generic.' },
+      { q: 'Who do you work with?', a: 'Aisha works with professionals at all career stages — from early-career professionals through to experienced leaders. Whether you\'re looking for your first professional role, a lateral move, a big promotion, or a total career change, there\'s a path forward and Aisha can help you find it.' },
+      { q: 'Do you work with people outside the US?', a: 'Yes. Roughly 40% of clients are based outside the US. Sessions are held online so it works wherever you are — the only thing we need to manage is timezones.' },
+    ]
+  },
+  {
+    section: 'Sessions & pricing',
+    items: [
+      { q: 'How much does coaching cost?', a: 'Sessions start at $225 for a one-off Power Hour. The full 3-month program is $1,250. The Quarterly (6 weeks) is $595. Full details on the Coaching page.' },
+      { q: 'How long is each session?', a: 'Each 1-on-1 session is 60 minutes. You\'ll also get a pre-session questionnaire and a written follow-up with action steps after every call.' },
+      { q: 'How are sessions held?', a: 'Online — Zoom or Google Meet, your choice. No travel, no logistics. You can do them from your sofa.' },
+      { q: 'Can I expense coaching?', a: 'Often, yes. Many employers will fund career or leadership coaching, especially as part of L&D budgets. I provide invoices that work for expensing.' },
+      { q: 'Do you offer payment plans?', a: 'Yes — the full Journey program can be split into 3 monthly payments at no extra cost. Just ask on the call.' },
+    ]
+  },
+  {
+    section: 'Getting started',
+    items: [
+      { q: 'What happens on the free discovery call?', a: 'A 20-minute, no-pressure chat to understand where you are, what you want to change, and whether I\'m the right coach for you. No script, no sales pitch — just a conversation. If we\'re not a fit, I\'ll tell you and recommend someone else if I can.' },
+      { q: 'How quickly can we start?', a: 'Usually within 1-2 weeks of the discovery call. If you\'re in an active layoff or have a tight deadline (an interview, a critical conversation) I keep emergency slots open and can often start within days.' },
+      { q: 'What if I don\'t know what I want yet?', a: 'Most clients don\'t, at the start. Getting clear is part of the work. You don\'t need to have it figured out before we start — you need to want to figure it out.' },
+    ]
+  },
+]
 
-const sections = [
-  {
-    heading: "About career coaching",
-    items: [
-      {
-        q: "What is career coaching?",
-        a: "Career coaching is personalised, 1-on-1 support to help you navigate key moments in your professional life. This might be finding a new job, earning a promotion, recovering from redundancy, making a career change, or preparing for an important interview. A career coach gives you strategy, honest feedback, and accountability — so you're not trying to figure it all out alone.",
-      },
-      {
-        q: "Is career coaching worth it?",
-        a: "For most people who commit to it, yes — significantly. The combination of expert guidance, honest feedback, and accountability tends to compress the timeline to achieving your goal considerably. Many clients attribute landing a specific role, earning a promotion, or successfully changing careers directly to their coaching work. Whether it's worth it for you depends on how important your goal is and how much value you place on getting there efficiently.",
-      },
-      {
-        q: "How is career coaching different from mentoring?",
-        a: "Mentoring typically involves someone more senior sharing their experience and advice. Coaching is more structured and goal-oriented — focused on helping you develop your own thinking, strategy, and skills rather than simply following someone else's path. Aisha's coaching combines elements of both: she brings real expertise from her HR background, plus structured coaching tools to help you apply it to your specific situation.",
-      },
-    ],
-  },
-  {
-    heading: "Working with Aisha",
-    items: [
-      {
-        q: "What makes Aisha different from other career coaches?",
-        a: "Aisha has a background in HR and recruiting — which means she has direct experience of how companies make hiring and promotion decisions. Most career coaches work from the outside looking in. Aisha's coaching is informed by the inside view: what actually gets CVs shortlisted, how promotion decisions really get made, and what employers are thinking but often don't say. This makes the advice specific, practical, and grounded in how things actually work — not how they should work.",
-      },
-      {
-        q: "Who does Aisha work with?",
-        a: "Aisha works with professionals at all stages of their careers — from those early in their working life to senior leaders with decades of experience. She supports people across all industries and job functions. The common thread is a desire to make progress: whether that means finding a better job, earning a promotion, rebuilding after redundancy, or changing direction entirely.",
-      },
-      {
-        q: "Does Aisha only work with people in the UK?",
-        a: "No. All sessions are held online via video call, which means Aisha works with clients globally. She currently supports professionals in the UK, Europe, North America, the Middle East, and beyond.",
-      },
-    ],
-  },
-  {
-    heading: "The sessions themselves",
-    items: [
-      {
-        q: "What happens in a coaching session?",
-        a: "Sessions are 60 minutes, held via video call. The structure varies depending on where you are and what you need — some sessions are very practical (working through your CV, preparing for an interview, planning a promotion conversation), others are more strategic (mapping out your career change, identifying what's been holding you back). Every session ends with a clear action plan so you always know what to do next.",
-      },
-      {
-        q: "How many sessions will I need?",
-        a: "That depends on your goal. If you're preparing for a specific event — a job interview or a salary negotiation — 1 to 2 sessions is often enough. If you're working through a full job search, promotion push, or career change, most clients find 4 to 6 sessions gives them the foundation they need, with additional sessions as required. We discuss this on your discovery call.",
-      },
-      {
-        q: "Can I book just one session?",
-        a: "Yes. Single sessions are available for clients with a specific, focused need. If you're not sure whether you need one session or more, the discovery call is the right place to start.",
-      },
-      {
-        q: "What's the discovery call?",
-        a: "The discovery call is a free 20-minute video call with Aisha. It's an informal conversation about where you are, what you're finding difficult, and what you want to achieve. There's no pressure and no obligation. Aisha will give you her honest assessment of whether she thinks coaching could help — and if so, what that might look like.",
-      },
-    ],
-  },
-  {
-    heading: "Practical questions",
-    items: [
-      {
-        q: "How much does career coaching cost?",
-        a: "Pricing is available on the 1-on-1 coaching page. Aisha offers single sessions and packages. The Career Alignment Club membership is available from £24/month for those who want ongoing support at a lower commitment level.",
-      },
-      {
-        q: "Do you offer refunds?",
-        a: "If you are not satisfied with your first session, please get in touch within 48 hours and we will discuss options. Full details are available on the terms and conditions page.",
-      },
-      {
-        q: "How do I get started?",
-        a: "Book a free discovery call using the booking link on the contact page. If you're not ready for a call, you can start with the free 5-day email course or join the weekly newsletter — both are available free of charge.",
-      },
-    ],
-  },
-];
+function Item({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className="border-b border-border last:border-0">
+      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between gap-6 py-5 text-left text-charcoal font-medium hover:text-sage transition-colors">
+        <span>{q}</span>
+        <span className="material-icons text-muted transition-transform" style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}>expand_more</span>
+      </button>
+      {open && <p className="pb-5 text-muted leading-relaxed">{a}</p>}
+    </div>
+  )
+}
 
 export default function FAQ() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: sections.flatMap((s) =>
-      s.items.map((i) => ({
-        "@type": "Question",
-        name: i.q,
-        acceptedAnswer: { "@type": "Answer", text: i.a },
-      }))
-    ),
-  };
-
   return (
-    <main className="min-h-screen bg-background text-on-surface">
-      <Navbar />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+    <>
+      {/* Hero */}
+      <section className="max-w-3xl mx-auto px-6 pt-20 pb-12 text-center">
+        <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">FAQ</p>
+        <h1 className="font-serif italic text-5xl lg:text-6xl text-charcoal mb-6 leading-tight">Frequently asked questions.</h1>
+        <p className="text-lg text-muted leading-relaxed">Everything you might want to know before working together. Can&apos;t find your question here? Bring it to the free discovery call.</p>
+      </section>
 
-      <div className="relative pt-32 pb-24 px-6 md:px-12 max-w-[1100px] mx-auto">
-        {/* Background decoration */}
-        <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-          <div className="absolute top-32 -left-20 w-96 h-96 bg-secondary/12 rounded-full blur-[120px]" />
-          <div className="absolute top-20 -right-20 w-96 h-96 bg-primary/8 rounded-full blur-[100px]" />
-        </div>
-
-        {/* Hero */}
-        <header className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-secondary-container/60 px-4 py-2 rounded-full mb-8">
-            <span className="material-symbols-outlined text-secondary text-base">help</span>
-            <span className="text-primary font-bold text-xs tracking-widest uppercase">FAQ · Everything explained</span>
-          </div>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-black text-primary leading-[1.02] tracking-tight mb-8">
-            Frequently Asked{" "}
-            <span className="relative inline-block">
-              <span className="italic text-secondary">Questions.</span>
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 320 14" fill="none" preserveAspectRatio="none">
-                <path d="M2 8 Q80 1 160 8 T318 7" stroke="currentColor" strokeWidth="4" strokeLinecap="round" className="text-secondary" />
-              </svg>
-            </span>
-          </h1>
-          <p className="text-lg text-on-surface-variant leading-relaxed max-w-2xl mx-auto">
-            Everything you need to know about working with Aisha — a 1-on-1 career coach with an HR background.
-          </p>
-
-          {/* Quick jump pills */}
-          <div className="flex flex-wrap justify-center gap-2 mt-10">
-            {sections.map((s, i) => (
-              <a
-                key={i}
-                href={`#section-${i}`}
-                className="px-4 py-2 rounded-full text-xs font-bold tracking-wide bg-white border border-outline-variant/20 text-primary hover:bg-primary hover:text-white transition-colors"
-              >
-                {s.heading}
-              </a>
-            ))}
-          </div>
-        </header>
-
-        {/* FAQ sections */}
-        {sections.map((section, sIdx) => (
-          <section key={sIdx} id={`section-${sIdx}`} className="mb-16 scroll-mt-32">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-8 pb-4 border-b-2 border-secondary/30">
-              {section.heading}
-            </h2>
-            <div className="space-y-4">
-              {section.items.map((item, idx) => (
-                <details
-                  key={idx}
-                  className="bg-surface-container-low rounded-lg p-6 group cursor-pointer border border-outline-variant/10"
-                >
-                  <summary className="flex justify-between items-start cursor-pointer list-none gap-4">
-                    <h3 className="text-lg font-bold text-primary">{item.q}</h3>
-                    <span className="material-symbols-outlined text-outline group-open:rotate-180 transition-transform shrink-0">
-                      expand_more
-                    </span>
-                  </summary>
-                  <p className="mt-4 text-on-surface-variant leading-relaxed">{item.a}</p>
-                </details>
-              ))}
+      {/* Groups */}
+      <section className="max-w-3xl mx-auto px-6 pb-24">
+        {groups.map(g => (
+          <div key={g.section} className="mb-12">
+            <h2 className="font-serif text-2xl text-charcoal mb-4">{g.section}</h2>
+            <div className="bg-white border border-border rounded-2xl px-6">
+              {g.items.map(item => <Item key={item.q} {...item} />)}
             </div>
-          </section>
+          </div>
         ))}
 
-        {/* CTA */}
-        <section className="text-center bg-primary text-white p-12 md:p-16 rounded-2xl mt-12">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">Still have questions?</h2>
-          <p className="text-blue-100/90 text-lg mb-10 max-w-xl mx-auto">
-            Book a free 20-minute discovery call — we'll talk through whatever's on your mind.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-secondary text-white px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-secondary/20"
-          >
-            Book a Free Discovery Call
+        <div className="text-center mt-16">
+          <p className="text-muted leading-relaxed mb-6">Still have questions?</p>
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-charcoal text-cream px-7 py-3.5 rounded-full font-medium hover:bg-sage transition-colors">
+            Book a Free Call <span className="material-icons text-base">arrow_right_alt</span>
           </Link>
-        </section>
-      </div>
+        </div>
+      </section>
 
-      <Footer />
-    </main>
-  );
+      <FinalCTA />
+    </>
+  )
 }
