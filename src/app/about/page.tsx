@@ -1,161 +1,196 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import FinalCTA from '@/components/FinalCTA'
-
-const rootedIn = [
-  'Executive-level insight',
-  'Employee relations expertise',
-  'Deep understanding of workplace psychology and power dynamics',
-]
-
-const iHelpClients = [
-  'Communicate with clarity and authority',
-  'Navigate difficult workplace situations with confidence',
-  'Position themselves for visibility, growth, and leadership',
-  'Recover from toxic or destabilizing work environments',
-]
 
 const credentials = [
-  { title: '20+ years experience', desc: 'Strategic Human Capital leadership advising executives and shaping high-performing organizations.' },
-  { title: 'Global track record', desc: 'Senior partnerships across the U.S., U.K., APAC, and MENA — employee relations, organizational design, and large-scale transformations.' },
-  { title: 'Inside the decision room', desc: 'Direct experience of how talent is evaluated, how promotions are decided, and how workplace dynamics actually play out.' },
-  { title: 'Workplace psychology lens', desc: 'My work sits at the intersection of strategy, communication, and human behavior — not generic motivational coaching.' },
+  { value: '20+', label: 'Years', desc: 'of strategic Human Capital leadership' },
+  { value: '4', label: 'Global regions', desc: '— U.S., U.K., APAC & MENA' },
+  { value: 'C-Suite', label: 'Executive-level', desc: 'partnerships & organizational design' },
+  { value: 'Real', label: 'Insider knowledge', desc: '— not textbook theory' },
 ]
 
-const regions = ['U.S.', 'U.K.', 'APAC', 'MENA']
+const outcomes = [
+  {
+    title: 'Communicate with clarity and authority',
+    desc: 'Know exactly what to say, how to say it, and when — in meetings, with leadership, and under pressure.',
+  },
+  {
+    title: 'Navigate difficult workplace dynamics with confidence',
+    desc: 'Toxic environments, difficult managers, office politics — you\'ll have the language and strategy to handle them.',
+  },
+  {
+    title: 'Position yourself for visibility, growth, and leadership',
+    desc: 'Stop being the best-kept secret in the room. Learn how to be seen, valued, and promoted.',
+  },
+  {
+    title: 'Recover and rebuild after destabilising experiences',
+    desc: 'Whether you\'ve been laid off, managed out, or worn down — we rebuild from the inside out.',
+  },
+]
+
+const testimonials = [
+  {
+    tag: 'The Overlooked High Performer',
+    body: 'I was delivering results, staying late, being reliable — and still being passed over. Aisha helped me see it wasn\'t my performance that was the problem.',
+    highlight: 'It was how I was communicating and positioning my work.',
+    rest: ' Within weeks I was speaking more clearly in meetings, advocating for myself without over-explaining, and being seen differently by leadership. For the first time, my visibility and my output actually match.',
+    result: 'Recognised by leadership within weeks',
+  },
+  {
+    tag: 'Toxic Workplace Recovery',
+    body: 'A toxic work environment was starting to affect my confidence and how I saw myself professionally. I felt stuck, reactive, exhausted. Aisha helped me separate what was actually happening from how I was internalising it.',
+    highlight: 'She gave me the language, strategy, and boundaries I didn\'t even know I needed.',
+    rest: ' I didn\'t just survive that situation — I navigated it with clarity and left on my own terms with a plan.',
+    result: 'Left on her own terms — with a plan',
+  },
+  {
+    tag: 'Promotion & Leadership Positioning',
+    body: 'I knew I was ready for the next level but wasn\'t being seen that way. I kept hearing "be more visible" — with no one able to tell me what that actually meant.',
+    highlight: 'Aisha broke it down in a way that finally clicked.',
+    rest: ' Within a few months I was leading more discussions, being looped into higher-level decisions, and ultimately positioned for promotion. The difference was night and day.',
+    result: 'Promoted within months',
+  },
+]
 
 export default function About() {
   return (
     <>
-      {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 pt-20 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">About the Founder</p>
-          <h1 className="font-serif italic text-5xl lg:text-6xl text-charcoal mb-6 leading-tight">
-            I&apos;m Aisha Naser.
-          </h1>
-          <p className="text-lg text-muted leading-relaxed">
-            Founder of My Career Therapist and a strategic Human Capital leader with over 20 years of experience advising executives, navigating complex workplace dynamics, and building high-performing organizations.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-2">
-            {regions.map(r => (
-              <span key={r} className="inline-block bg-sage-light text-sage text-xs font-semibold px-3 py-1.5 rounded-full">{r}</span>
-            ))}
+      {/* Section 1 — Hero */}
+      <section className="max-w-7xl mx-auto px-6 pt-20 pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+          <div className="lg:col-span-3 order-2 lg:order-1">
+            <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-5">About Aisha</p>
+            <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-charcoal leading-tight mb-8">
+              If you&apos;ve ever felt <em className="italic text-sage">invisible at work</em> despite being good at your job — you&apos;re exactly who I built this for.
+            </h1>
+            <p className="text-lg text-muted leading-relaxed">
+              Most career struggles aren&apos;t about capability. They&apos;re about{' '}
+              <span className="text-charcoal font-semibold">communication, positioning, and knowing how to navigate the unspoken rules of the workplace.</span>{' '}
+              That&apos;s the gap I&apos;ve spent 20 years learning to close — and what I now help my clients master.
+            </p>
           </div>
-        </div>
-        <div className="relative rounded-2xl overflow-hidden aspect-[4/5] max-w-md mx-auto lg:ml-auto">
-          <Image src="/aisha.jpg" alt="Aisha Naser, Founder of My Career Therapist" fill className="object-cover" />
+          <div className="lg:col-span-2 order-1 lg:order-2">
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/5] max-w-sm mx-auto lg:ml-auto">
+              <Image src="/aisha.jpg" alt="Aisha Naser, Founder of My Career Therapist" fill className="object-cover object-top" priority />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* My story */}
+      {/* Section 2 — My Story + Pull quote */}
       <section className="bg-white border-y border-border">
         <div className="max-w-3xl mx-auto px-6 py-24">
-          <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">My story</p>
-          <h2 className="font-serif text-4xl lg:text-5xl text-charcoal mb-10 leading-tight">
-            Inside the rooms where careers are decided.
+          <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-5">My Story</p>
+          <h2 className="font-serif text-4xl lg:text-5xl text-charcoal leading-tight mb-10">
+            I&apos;ve been inside the rooms<br />where careers are decided.
           </h2>
 
-          <div className="space-y-6 text-muted leading-relaxed text-lg">
+          <div className="space-y-5 text-muted leading-relaxed text-lg">
             <p>
-              Throughout my career, I&apos;ve worked as a trusted partner to senior leadership across global organizations — leading employee relations, organizational design, and large-scale transformations across the U.S., U.K., APAC, and MENA.
+              I&apos;m <span className="text-charcoal font-semibold">Aisha Naser</span> — founder of My Career Therapist and a strategic Human Capital leader with over 20 years advising executives, leading employee relations, and shaping high-performing organizations across the U.S., U.K., APAC, and MENA.
+            </p>
+            <p>
+              I&apos;ve sat at the tables where promotions are given and withheld. Where talented people are overlooked not because of their work — but because of how they&apos;re perceived. Where the rules that matter most are never written down.
             </p>
           </div>
 
-          {/* Pull quote */}
-          <div className="border-l-2 border-sage pl-6 my-10">
-            <p className="font-serif italic text-2xl lg:text-3xl text-charcoal leading-snug mb-3">
-              I&apos;ve been in the rooms where decisions are made.
+          {/* Pull quote — the emotional anchor */}
+          <blockquote className="border-l-4 border-sage pl-6 lg:pl-8 my-12">
+            <p className="font-serif italic text-2xl lg:text-3xl text-charcoal leading-snug">
+              &ldquo;The people who struggled most weren&apos;t the least capable. They were the least equipped to navigate the unspoken rules of work. That realization changed everything for me.&rdquo;
             </p>
-            <p className="text-muted leading-relaxed text-lg">
-              I&apos;ve seen how talent is evaluated, how promotions are decided, and how workplace dynamics actually play out behind the scenes.
-            </p>
-          </div>
+          </blockquote>
 
-          <div className="space-y-6 text-muted leading-relaxed text-lg">
-            <p className="text-charcoal font-medium">And I noticed a pattern:</p>
+          <div className="space-y-5 text-muted leading-relaxed text-lg">
             <p>
-              The people who struggled the most weren&apos;t the least capable. They were the least equipped to navigate the unspoken rules of work.
+              That&apos;s why I created My Career Therapist. Not to offer motivation or generic advice — but to give you the{' '}
+              <span className="text-charcoal font-semibold">strategic, insider perspective</span>{' '}
+              that most professionals never get access to.
             </p>
-            <p className="text-charcoal font-medium">That&apos;s why I created My Career Therapist.</p>
             <p>
-              My work sits at the intersection of workplace strategy, communication, and human behavior. I help professionals understand how they are perceived, strengthen how they show up, and navigate environments that are often political, complex, and emotionally demanding.
+              My work sits at the intersection of workplace strategy, communication, and human behavior. I help you understand how you&apos;re being perceived, strengthen how you show up, and navigate environments that are often political, complex, and emotionally demanding.
             </p>
           </div>
         </div>
       </section>
 
-      {/* What it's rooted in + what I help clients do */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg-white border border-border rounded-2xl p-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">My Approach</p>
-            <h3 className="font-serif text-2xl lg:text-3xl text-charcoal mb-4 leading-snug">
-              This isn&apos;t traditional career coaching.
-            </h3>
-            <p className="text-muted leading-relaxed mb-6">
-              This is strategic, real-world guidance rooted in:
-            </p>
-            <ul className="space-y-3">
-              {rootedIn.map(item => (
-                <li key={item} className="flex items-start gap-3 text-charcoal">
-                  <span className="material-icons text-sage text-base mt-0.5">check_circle</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="bg-white border border-border rounded-2xl p-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">What I help my clients do</p>
-            <h3 className="font-serif text-2xl lg:text-3xl text-charcoal mb-6 leading-snug">
-              Move from reactive to strategic.
-            </h3>
-            <ul className="space-y-3">
-              {iHelpClients.map(item => (
-                <li key={item} className="flex items-start gap-3 text-charcoal">
-                  <span className="material-icons text-sage text-base mt-0.5">check_circle</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+      {/* Section 3 — The Insider Edge */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-8">The Insider Edge</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {credentials.map(c => (
+            <div key={c.label} className="bg-white border border-border rounded-2xl p-8">
+              <p className="font-serif text-5xl lg:text-6xl text-sage mb-4 leading-none">{c.value}</p>
+              <p className="text-charcoal font-semibold mb-1">
+                {c.label} <span className="text-muted font-normal">{c.desc}</span>
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Credentials grid */}
+      {/* Section 4 — My Approach + Outcomes */}
       <section className="bg-white border-y border-border">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">The Insider Edge</p>
-          <h2 className="font-serif text-4xl lg:text-5xl text-charcoal mb-12">Where the perspective comes from.</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {credentials.map(c => (
-              <div key={c.title} className="bg-cream border border-border rounded-2xl p-6">
-                <h3 className="font-serif text-xl text-charcoal mb-3">{c.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{c.desc}</p>
+        <div className="max-w-4xl mx-auto px-6 py-24">
+          <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-5">My Approach</p>
+          <h2 className="font-serif text-4xl lg:text-5xl text-charcoal leading-tight mb-6">
+            This isn&apos;t traditional career coaching.
+          </h2>
+          <p className="text-lg text-muted leading-relaxed mb-12">
+            This is strategic, real-world guidance built on what actually happens inside organizations — not what the textbooks say. I help you move from reactive to strategic, so you stop guessing and start operating with clarity and confidence.
+          </p>
+          <div className="space-y-4">
+            {outcomes.map(o => (
+              <div key={o.title} className="bg-cream border border-border rounded-2xl p-6">
+                <h3 className="text-charcoal font-semibold mb-2">{o.title}</h3>
+                <p className="text-muted leading-relaxed">{o.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Closing philosophy */}
-      <section className="bg-sage">
-        <div className="max-w-3xl mx-auto px-6 py-20 text-center">
-          <p className="text-cream/70 leading-relaxed mb-4">Because in today&apos;s workplace, success isn&apos;t just about performance.</p>
-          <p className="font-serif italic text-3xl lg:text-4xl text-cream leading-snug mb-8">
-            It&apos;s about perception. It&apos;s about positioning. It&apos;s about knowing how to operate in rooms where not everything is said out loud.
-          </p>
-          <p className="text-cream/80 leading-relaxed mb-8">
-            If you&apos;re ready to stop guessing and start moving strategically in your career — you&apos;re in the right place.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-cream text-charcoal px-7 py-3.5 rounded-full font-medium hover:bg-charcoal hover:text-cream transition-colors">
-            Book a Discovery Call <span className="material-icons text-base">arrow_right_alt</span>
-          </Link>
+      {/* Section 5 — Client Results */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">Client Results</p>
+        <h2 className="font-serif text-4xl lg:text-5xl text-charcoal mb-12 leading-tight">
+          Real outcomes from real clients.
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map(t => (
+            <div key={t.tag} className="bg-white border border-border rounded-2xl p-8 flex flex-col">
+              <span className="material-icons text-sage/40 text-4xl mb-5">format_quote</span>
+              <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-4">{t.tag}</p>
+              <p className="text-charcoal leading-relaxed flex-1">
+                {t.body} <span className="font-semibold">{t.highlight}</span>{t.rest}
+              </p>
+              <div className="mt-6 pt-6 border-t border-border">
+                <span className="inline-block bg-sage-light text-sage text-sm font-semibold px-4 py-2 rounded-full">
+                  {t.result}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      <FinalCTA />
+      {/* Section 6 — CTA */}
+      <section className="bg-charcoal">
+        <div className="max-w-3xl mx-auto px-6 py-24 text-center">
+          <h2 className="font-serif text-4xl lg:text-5xl text-cream mb-6 leading-tight">
+            Ready to stop guessing<br />and start moving strategically?
+          </h2>
+          <p className="text-cream/80 leading-relaxed text-lg mb-10">
+            Book a free discovery call. We&apos;ll decode exactly what&apos;s holding you back and map out your next move — together.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-cream text-charcoal px-8 py-4 rounded-full font-medium hover:bg-sage hover:text-cream transition-colors"
+          >
+            Book Your Free Discovery Call <span className="material-icons text-base">arrow_forward</span>
+          </Link>
+          <p className="text-cream/60 text-sm mt-6 italic">No pressure. No pitch. Just clarity.</p>
+        </div>
+      </section>
     </>
   )
 }

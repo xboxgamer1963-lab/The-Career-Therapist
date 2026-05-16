@@ -61,6 +61,20 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Disclaimer strip — clarifies the practice */}
+      <div className="border-t border-border bg-sage-light/50">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-wrap items-center justify-center gap-3 text-xs">
+          <span className="inline-flex items-center gap-2 bg-white border border-border text-charcoal font-medium px-3 py-1.5 rounded-full">
+            <span className="material-icons text-sage text-sm">check_circle</span>
+            Professional development and workplace strategy
+          </span>
+          <span className="inline-flex items-center gap-2 bg-white border border-border text-muted font-medium px-3 py-1.5 rounded-full">
+            <span className="material-icons text-muted text-sm">info</span>
+            Not mental health therapy
+          </span>
+        </div>
+      </div>
+
       <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 py-5 text-xs text-muted">
           © 2026 My Career Therapist · Workplace strategy & professional development. Sessions held online, worldwide.
