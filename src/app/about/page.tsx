@@ -42,7 +42,7 @@ export default function About() {
             <p>I spent seven years working in HR and talent acquisition across consumer, financial services and tech. I sat on hiring panels, read thousands of resumes, watched promotion decisions get made, and saw — over and over again — brilliant people get overlooked for entirely fixable reasons.</p>
             <p>The candidate who didn&apos;t know how to talk about their own work. The mid-level manager who&apos;d been doing senior work for two years but had never made the case. The senior leader who got made redundant and panicked into the wrong role because they didn&apos;t have anyone to think it through with.</p>
             <p>I kept thinking: someone needs to be on their side of the table. Not a recruiter (whose loyalty is to the hiring company), not a friend (who doesn&apos;t know the system), but someone who knows the rules and is paid to be in your corner.</p>
-            <p>So I left HR and built that. The Career Therapist is what I wish my friends had had access to a decade ago — coaching that&apos;s honest, practical, strategic, and informed by what really happens behind the scenes.</p>
+            <p>So I left HR and built that. My Career Therapist is what I wish my friends had had access to a decade ago — coaching that&apos;s honest, practical, strategic, and informed by what really happens behind the scenes.</p>
           </div>
         </div>
       </section>

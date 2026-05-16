@@ -31,8 +31,8 @@ export default function Footer() {
           <p className="text-sm text-muted leading-relaxed">
             1-on-1 career coaching with Aisha — a coach with an HR background, helping professionals find jobs, earn promotions, and change careers with real insider knowledge.
           </p>
-          <a href="mailto:hello@thecareertherapist.com" className="mt-4 inline-block text-sm text-sage hover:underline">
-            hello@thecareertherapist.com
+          <a href="mailto:hello@mycareertherapist.com" className="mt-4 inline-block text-sm text-sage hover:underline">
+            hello@mycareertherapist.com
           </a>
         </div>
 
@@ -63,7 +63,7 @@ export default function Footer() {
 
       <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 py-5 text-xs text-muted">
-          © 2026 The Career Therapist · Career coaching with Aisha. Sessions held online, worldwide.
+          © 2026 My Career Therapist · Workplace strategy & professional development. Sessions held online, worldwide.
         </div>
       </div>
     </footer>

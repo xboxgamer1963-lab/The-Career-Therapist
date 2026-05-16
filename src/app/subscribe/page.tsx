@@ -23,7 +23,7 @@ export default function Subscribe() {
     <>
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-6 pt-20 pb-12 text-center">
-        <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">The Career Therapist Newsletter</p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">My Career Therapist Newsletter</p>
         <h1 className="font-serif italic text-5xl lg:text-6xl text-charcoal mb-6 leading-tight">Weekly career insights — straight to your inbox.</h1>
         <p className="text-lg text-muted leading-relaxed max-w-2xl mx-auto mb-10">
           Practical, honest career advice for professionals who want to get ahead. 4,800+ readers across 30+ countries. Free, forever.

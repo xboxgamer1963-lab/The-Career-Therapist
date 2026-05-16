@@ -3,52 +3,52 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Aisha",
-    jobTitle: "Career Coach",
-    url: "https://thecareertherapist.com/about",
-    image: "https://thecareertherapist.com/logo.png",
+    jobTitle: "Career Therapist",
+    url: "https://mycareertherapist.com/about",
+    image: "https://mycareertherapist.com/logo.png",
     description:
-      "Career coach with a background in HR and recruiting. Helps professionals land jobs, earn promotions, recover from redundancy, and change careers.",
+      "Career Therapist with a background in HR and recruiting. Helps professionals decode workplace dynamics, build influence, and take control of their careers.",
     knowsAbout: [
-      "Career Coaching",
-      "Job Search",
+      "Workplace Strategy",
+      "Professional Development",
+      "Executive Communication",
+      "Workplace Politics",
       "Promotion Strategy",
-      "Redundancy Support",
       "Career Change",
-      "HR and Recruiting",
-      "Interview Coaching",
-      "Salary Negotiation",
+      "Outplacement",
+      "Influence and Perception Management",
     ],
-    sameAs: ["https://thecareertherapist.com"],
+    sameAs: ["https://mycareertherapist.com"],
   };
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "1-on-1 Career Coaching",
+    name: "Strategic Career Therapy",
     provider: {
       "@type": "Person",
       name: "Aisha",
     },
     description:
-      "Personal 1-on-1 career coaching for job search, promotion, redundancy recovery, and career change — delivered online by Aisha, a coach with an HR background.",
+      "Private, high-touch workplace strategy and professional development for individuals navigating complex or high-stakes environments.",
     areaServed: "Worldwide",
     availableChannel: {
       "@type": "ServiceChannel",
       serviceType: "Online",
     },
-    serviceType: "Career Coaching",
-    url: "https://thecareertherapist.com/coaching",
+    serviceType: "Career Therapy",
+    url: "https://mycareertherapist.com/coaching",
   };
 
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "The Career Therapist",
+    name: "My Career Therapist",
     description:
-      "1-on-1 career coaching with Aisha — a coach with an HR background helping professionals find jobs, get promoted, and change careers.",
-    url: "https://thecareertherapist.com",
-    logo: "https://thecareertherapist.com/logo.png",
-    email: "hello@thecareertherapist.com",
+      "Workplace strategy and professional development practice helping individuals and organizations decode hidden workplace dynamics, build influence, and shape careers with intention.",
+    url: "https://mycareertherapist.com",
+    logo: "https://mycareertherapist.com/logo.png",
+    email: "hello@mycareertherapist.com",
     areaServed: "Worldwide",
     founder: {
       "@type": "Person",
@@ -56,13 +56,11 @@ export default function StructuredData() {
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Career Coaching Services",
+      name: "Workplace Strategy Services",
       itemListElement: [
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Job Search Coaching" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Promotion Coaching" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Redundancy & Layoff Coaching" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Career Change Coaching" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "The Career Alignment Club" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Strategic Career Therapy (Individuals)" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Workforce Transition & Outplacement (Organizations)" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Courses, Tools & Community" } },
       ],
     },
   };
