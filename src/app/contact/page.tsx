@@ -36,20 +36,19 @@ export default function Contact() {
     console.log('[contact] submitting payload', payload)
 
     try {
-      const response = await fetch(WEBHOOK_URL, {
+      // Google Apps Script /exec redirects to script.googleusercontent.com
+      // which doesn't set Access-Control-Allow-Origin, so we use no-cors.
+      // The request still reaches the Script; the response is opaque and
+      // a thrown error is the only signal of a real network failure.
+      await fetch(WEBHOOK_URL, {
         method: 'POST',
-        // text/plain avoids a CORS preflight against Google Apps Script;
-        // the Script still parses e.postData.contents as JSON.
+        mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload),
         redirect: 'follow',
       })
 
-      if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`)
-      }
-
-      console.log('[contact] submission successful', response.status)
+      console.log('[contact] submission dispatched')
       setStatus('success')
       form.reset()
     } catch (err) {
