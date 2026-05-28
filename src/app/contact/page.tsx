@@ -1,7 +1,5 @@
 'use client'
 import { useState } from 'react'
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
-import { db } from '@/lib/firebase'
 import FinalCTA from '@/components/FinalCTA'
 
 const reasons = [
@@ -11,6 +9,9 @@ const reasons = [
   { icon: 'moving', label: 'Career change' },
   { icon: 'help_outline', label: 'Something else' },
 ]
+
+const WEBHOOK_URL =
+  'https://script.google.com/macros/s/AKfycbzZHf6-XWZ3T-doZEW22Q9jk46ohjzBSKeIwZijEtZ9Tq04SUlRWg26K4pJgsx-T8DS0A/exec'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -28,19 +29,31 @@ export default function Contact() {
     const payload = {
       name: String(formData.get('name') || '').trim(),
       email: String(formData.get('email') || '').trim(),
-      reason: String(formData.get('reason') || ''),
-      message: String(formData.get('message') || '').trim(),
-      createdAt: serverTimestamp(),
-      status: 'new',
-      source: 'contact-page',
+      help: String(formData.get('reason') || '').trim(),
+      about: String(formData.get('message') || '').trim(),
     }
 
+    console.log('[contact] submitting payload', payload)
+
     try {
-      await addDoc(collection(db, 'contactSubmissions'), payload)
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        // text/plain avoids a CORS preflight against Google Apps Script;
+        // the Script still parses e.postData.contents as JSON.
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+        redirect: 'follow',
+      })
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`)
+      }
+
+      console.log('[contact] submission successful', response.status)
       setStatus('success')
       form.reset()
     } catch (err) {
-      console.error('Contact form submission failed:', err)
+      console.error('[contact] submission failed:', err)
       setStatus('error')
       setErrorMessage(
         err instanceof Error
