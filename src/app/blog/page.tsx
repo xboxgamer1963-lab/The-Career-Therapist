@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import FinalCTA from '@/components/FinalCTA'
 import { posts, formatDate } from './posts'
 
@@ -23,8 +24,15 @@ export default function Blog() {
         <section className="max-w-7xl mx-auto px-6 mb-16">
           <Link href={`/blog/${featured.slug}`} className="block group">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center border border-border rounded-2xl p-8 bg-white hover:shadow-md transition-shadow">
-              <div className="aspect-[16/10] bg-sage-light rounded-xl flex items-center justify-center">
-                <span className="material-icons text-sage text-7xl">article</span>
+              <div className="relative aspect-[16/10] bg-sage-light rounded-xl overflow-hidden">
+                <Image
+                  src={featured.coverImage}
+                  alt={featured.coverImageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
               </div>
               <div>
                 <span className="inline-block bg-sage-light text-sage text-xs font-semibold px-3 py-1 rounded-full mb-4">
@@ -56,8 +64,18 @@ export default function Blog() {
               <Link
                 key={p.slug}
                 href={`/blog/${p.slug}`}
-                className="block group bg-white border border-border rounded-2xl p-6 hover:shadow-md transition-shadow"
+                className="block group bg-white border border-border rounded-2xl overflow-hidden hover:shadow-md transition-shadow"
               >
+                <div className="relative aspect-[16/10] bg-sage-light">
+                  <Image
+                    src={p.coverImage}
+                    alt={p.coverImageAlt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
                 <span className="inline-block bg-sage-light text-sage text-xs font-semibold px-3 py-1 rounded-full mb-4">
                   {p.category}
                 </span>
@@ -69,6 +87,7 @@ export default function Blog() {
                   <span>{formatDate(p.date)}</span>
                   <span>·</span>
                   <span>{p.readTime}</span>
+                </div>
                 </div>
               </Link>
             ))}

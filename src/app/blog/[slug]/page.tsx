@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import FinalCTA from '@/components/FinalCTA'
 import { posts, getPost, formatDate } from '../posts'
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {}
 
   const url = `${SITE_URL}/blog/${post.slug}`
+  const imageUrl = `${SITE_URL}${post.coverImage}`
   return {
     title: post.seoTitle,
     description: post.metaDescription,
@@ -39,11 +41,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       type: 'article',
       publishedTime: post.date,
+      images: [{ url: imageUrl, alt: post.coverImageAlt }],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.seoTitle,
       description: post.metaDescription,
+      images: [imageUrl],
     },
   }
 }
@@ -62,6 +66,7 @@ export default async function BlogPostPage({ params }: Props) {
     '@type': 'Article',
     headline: post.title,
     description: post.metaDescription,
+    image: [`${SITE_URL}${post.coverImage}`],
     datePublished: post.date,
     dateModified: post.date,
     author: { '@type': 'Person', name: 'Aisha — My Career Therapist' },
@@ -123,10 +128,21 @@ export default async function BlogPostPage({ params }: Props) {
         <h1 className="font-serif italic text-4xl lg:text-5xl text-charcoal leading-tight mb-6">
           {post.title}
         </h1>
-        <div className="flex items-center gap-3 text-sm text-muted border-b border-border pb-8 mb-12">
+        <div className="flex items-center gap-3 text-sm text-muted pb-8">
           <span>{formatDate(post.date)}</span>
           <span>·</span>
           <span>{post.readTime}</span>
+        </div>
+
+        <div className="relative aspect-[16/9] bg-sage-light rounded-2xl overflow-hidden mb-12">
+          <Image
+            src={post.coverImage}
+            alt={post.coverImageAlt}
+            fill
+            sizes="(min-width: 768px) 768px, 100vw"
+            className="object-cover"
+            priority
+          />
         </div>
 
         <Component />
