@@ -2,10 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const credentials = [
-  { value: '20+', label: 'Years', desc: 'of strategic Human Capital leadership' },
-  { value: '4', label: 'Global regions', desc: '— U.S., U.K., APAC & MENA' },
-  { value: 'C-Suite', label: 'Executive-level', desc: 'partnerships & organizational design' },
-  { value: 'Real', label: 'Insider knowledge', desc: '— not textbook theory' },
+  { value: '21', label: 'Years', desc: 'of strategic Human Capital leadership' },
+  { value: '100+', label: 'Professionals coached', desc: '1-on-1, across all stages' },
+  { value: 'USA', label: 'Coast to coast', desc: '— clients across the United States' },
+  { value: 'All', label: 'Industries', desc: 'served — tech, finance, healthcare & more' },
 ]
 
 const outcomes = [
@@ -86,7 +86,7 @@ export default function About() {
 
           <div className="space-y-5 text-muted leading-relaxed text-lg">
             <p>
-              I&apos;m <span className="text-charcoal font-semibold">Aisha Naser</span> — founder of My Career Therapist and a strategic Human Capital leader with over 20 years advising executives, leading employee relations, and shaping high-performing organizations across the U.S., U.K., APAC, and MENA.
+              I&apos;m <span className="text-charcoal font-semibold">Aisha Naser</span> — founder of My Career Therapist and a strategic Human Capital leader with 21 years advising executives, leading employee relations, and shaping high-performing organizations.
             </p>
             <p>
               I&apos;ve sat at the tables where promotions are given and withheld. Where talented people are overlooked not because of their work — but because of how they&apos;re perceived. Where the rules that matter most are never written down.
@@ -105,6 +105,9 @@ export default function About() {
               That&apos;s why I created My Career Therapist. Not to offer motivation or generic advice — but to give you the{' '}
               <span className="text-charcoal font-semibold">strategic, insider perspective</span>{' '}
               that most professionals never get access to.
+            </p>
+            <p>
+              The word <span className="text-charcoal font-semibold italic font-serif">&ldquo;Therapist&rdquo;</span> isn&apos;t clinical — it&apos;s intentional. The work goes deeper than career coaching: how you&apos;re perceived, how you communicate under pressure, and how you navigate the unspoken rules of work. We&apos;re not a substitute for mental health therapy — and we don&apos;t pretend to be — but we go further than &ldquo;polish your resume.&rdquo;
             </p>
             <p>
               My work sits at the intersection of workplace strategy, communication, and human behavior. I help you understand how you&apos;re being perceived, strengthen how you show up, and navigate environments that are often political, complex, and emotionally demanding.

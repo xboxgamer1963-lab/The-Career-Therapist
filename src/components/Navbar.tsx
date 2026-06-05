@@ -1,17 +1,27 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import IntakeFormModal from './IntakeFormModal'
 
 const navLinks = [
   { label: 'For Individuals', href: '/coaching' },
   { label: 'For Organizations', href: '/organizations' },
   { label: 'Courses & Community', href: '/club' },
+  { label: 'Speaking', href: '/speaking' },
   { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
 ]
 
+const INSTAGRAM_URL = 'https://www.instagram.com/mycareertherapist/'
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [formOpen, setFormOpen] = useState(false)
+
+  const openForm = () => {
+    setOpen(false)
+    setFormOpen(true)
+  }
 
   return (
     <>
@@ -36,11 +46,28 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA + hamburger */}
-          <div className="flex items-center gap-4">
-            <Link href="/contact" className="hidden sm:inline-flex items-center bg-charcoal text-cream px-5 py-2 rounded-full text-sm font-medium hover:bg-sage transition-colors">
+          {/* Right cluster: social + CTA + hamburger */}
+          <div className="flex items-center gap-3">
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow on Instagram"
+              className="hidden sm:inline-flex items-center justify-center w-9 h-9 rounded-full border border-border text-charcoal hover:text-sage hover:border-sage transition-colors"
+            >
+              <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.7" />
+                <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.7" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+              </svg>
+            </a>
+            <button
+              type="button"
+              onClick={openForm}
+              className="hidden sm:inline-flex items-center bg-charcoal text-cream px-5 py-2 rounded-full text-sm font-medium hover:bg-sage transition-colors"
+            >
               Book a Free Call
-            </Link>
+            </button>
             <button onClick={() => setOpen(!open)} className="lg:hidden text-charcoal" aria-label="Toggle menu">
               <span className="material-icons">{open ? 'close' : 'menu'}</span>
             </button>
@@ -55,12 +82,21 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <Link href="/contact" onClick={() => setOpen(false)} className="mt-2 inline-flex justify-center bg-charcoal text-cream px-5 py-2 rounded-full hover:bg-sage transition-colors">
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-charcoal hover:text-sage inline-flex items-center gap-2">
+              <span className="material-icons text-base">camera_alt</span> Instagram
+            </a>
+            <button
+              type="button"
+              onClick={openForm}
+              className="mt-2 inline-flex justify-center bg-charcoal text-cream px-5 py-2 rounded-full hover:bg-sage transition-colors"
+            >
               Book a Free Call
-            </Link>
+            </button>
           </div>
         )}
       </nav>
+
+      <IntakeFormModal open={formOpen} onClose={() => setFormOpen(false)} />
     </>
   )
 }

@@ -46,7 +46,7 @@ export default function FreeCourse() {
             </form>
           )}
 
-          <p className="text-xs text-muted mt-3">No spam. Unsubscribe in one click. 4,800+ professionals have taken it.</p>
+          <p className="text-xs text-muted mt-3">No spam. Unsubscribe in one click.</p>
         </div>
 
         <div className="bg-cream border border-border rounded-2xl p-8">

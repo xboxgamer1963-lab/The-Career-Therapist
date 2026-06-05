@@ -23,7 +23,7 @@ export const posts: BlogPost[] = [
     category: 'Job Search',
     date: '2026-05-28',
     readTime: '18 min read',
-    coverImage: '/blog/how-to-land-your-dream-job.jpeg',
+    coverImage: '/blog/job-hunting-illustration.jpg',
     coverImageAlt:
       'Job search illustration showing icons for resume, interview, networking, and career growth',
   },

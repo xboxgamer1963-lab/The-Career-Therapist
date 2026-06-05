@@ -7,29 +7,31 @@ const groups = [
   {
     section: 'General',
     items: [
-      { q: 'What does a career coach actually do?', a: 'A career coach helps you navigate key moments in your professional life — finding a new job, earning a promotion, handling a layoff, or changing direction. We provide strategy, accountability, honest feedback, and the kind of support that means you don\'t have to figure it all out alone.' },
-      { q: 'How is Aisha different from other career coaches?', a: 'Aisha has a background in HR and recruiting, which means she has direct experience of how companies hire and promote. This insider perspective is what makes her coaching practical and specific, not generic.' },
-      { q: 'Who do you work with?', a: 'Aisha works with professionals at all career stages — from early-career professionals through to experienced leaders. Whether you\'re looking for your first professional role, a lateral move, a big promotion, or a total career change, there\'s a path forward and Aisha can help you find it.' },
-      { q: 'Do you work with people outside the US?', a: 'Yes. Roughly 40% of clients are based outside the US. Sessions are held online so it works wherever you are — the only thing we need to manage is timezones.' },
-    ]
+      { q: 'How is this different from therapy?', a: "The name is intentional, but the work isn't clinical. We don't treat mental health conditions. We work on the structural side of your career — how you're perceived, how you communicate under pressure, and how you navigate the unspoken rules of work. If you'd benefit from clinical support, a licensed therapist is the right person; the two complement each other well." },
+      { q: 'How is Aisha different from other career coaches?', a: '21 years inside Human Capital — advising executives, leading employee relations, shaping how organizations actually hire, promote, and exit people. Most career coaches teach you to apply. Aisha teaches you what\'s happening on the other side of the table while you\'re applying.' },
+      { q: 'Who do you work with?', a: 'Professionals at all career stages — from people just starting out to experienced leaders. Whether you\'re looking for your first professional role, a lateral move, a big promotion, or a total career change, there\'s a path forward.' },
+      { q: 'Do you work with senior executives?', a: 'Yes. A significant portion of clients are at director, VP, and C-suite level. The challenges shift at that altitude — boardroom dynamics, succession, executive presence, organizational power — and the work is tailored accordingly.' },
+      { q: 'Where are your clients based?', a: 'Across the United States. Sessions are held online so it works wherever you are in the country — coast to coast.' },
+    ],
   },
   {
-    section: 'Sessions & pricing',
+    section: 'Working together',
     items: [
-      { q: 'How much does coaching cost?', a: 'Investment depends on the engagement that fits you — a single Power Hour, the six-week Quarterly, or the full three-month Journey. Because every situation is different, we share pricing on the free discovery call once we\'ve determined the right fit.' },
-      { q: 'How long is each session?', a: 'Each 1-on-1 session is 60 minutes. You\'ll also get a pre-session questionnaire and a written follow-up with action steps after every call.' },
+      { q: "What if I'm employed and not actively job searching?", a: "Most clients are employed. The work is rarely about the job market — it's about visibility, promotions, difficult managers, internal politics, and positioning yourself for what's next while you're still in the current role. Don't wait until you're unhappy enough to leave." },
+      { q: 'What does a typical engagement look like?', a: 'Most 1-on-1 work runs as a 60-minute video session every 1–2 weeks, with async support between sessions for the work that comes up live — a tricky email, an offer to think through, a meeting that didn\'t go how you wanted. Engagement lengths range from focused sprints to ongoing partnerships.' },
+      { q: 'How long does it take to see results?', a: "Most clients see meaningful shifts within the first 4–6 weeks — usually in how they're showing up in meetings, how they're being perceived by leadership, or how recruiters are responding to their LinkedIn. Bigger outcomes (promotions, new roles, pivots) typically land in the 2–6 month range." },
       { q: 'How are sessions held?', a: 'Online — Zoom or Google Meet, your choice. No travel, no logistics. You can do them from your sofa.' },
-      { q: 'Can I expense coaching?', a: 'Often, yes. Many employers will fund career or leadership coaching, especially as part of L&D budgets. I provide invoices that work for expensing.' },
-      { q: 'Do you offer payment plans?', a: 'Yes — the full Journey program can be split into 3 monthly payments at no extra cost. Just ask on the call.' },
-    ]
+      { q: 'Do you help with resumes, LinkedIn, and interview prep?', a: "Yes, but rarely as standalone services. They're part of the strategic work — your resume and LinkedIn only matter once you're targeting the right roles, and interview prep lands better once you understand what the hiring side is actually evaluating. We do all of it; we just sequence it." },
+    ],
   },
   {
     section: 'Getting started',
     items: [
-      { q: 'What happens on the free discovery call?', a: 'A 20-minute, no-pressure chat to understand where you are, what you want to change, and whether I\'m the right coach for you. No script, no sales pitch — just a conversation. If we\'re not a fit, I\'ll tell you and recommend someone else if I can.' },
-      { q: 'How quickly can we start?', a: 'Usually within 1-2 weeks of the discovery call. If you\'re in an active layoff or have a tight deadline (an interview, a critical conversation) I keep emergency slots open and can often start within days.' },
-      { q: 'What if I don\'t know what I want yet?', a: 'Most clients don\'t, at the start. Getting clear is part of the work. You don\'t need to have it figured out before we start — you need to want to figure it out.' },
-    ]
+      { q: 'Is the discovery call really free, and is it a sales pitch?', a: "Yes, it's genuinely free — and no, it's not a pitch. It's a 20-minute conversation where you describe what's going on and Aisha gives you an honest read on whether coaching is the right next step. If it isn't, she'll tell you." },
+      { q: "What if I'm not sure what I actually want to do?", a: "That's where a lot of clients start. The first part of the work is often making the underlying question precise — separating the symptoms (bored, underpaid, stuck) from the actual decision. You don't need to have it figured out before booking." },
+      { q: 'How quickly can we start?', a: "Usually within 1–2 weeks of the discovery call. If you're in an active layoff or have a tight deadline (an interview, a critical conversation) emergency slots are available and we can often start within days." },
+      { q: 'Can I expense coaching?', a: 'Often, yes. Many employers fund career or leadership coaching, especially as part of L&D budgets. Invoices are provided in a format that works for expensing.' },
+    ],
   },
 ]
 
@@ -39,7 +41,7 @@ function Item({ q, a }: { q: string; a: string }) {
     <div className="border-b border-border last:border-0">
       <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between gap-6 py-5 text-left text-charcoal font-medium hover:text-sage transition-colors">
         <span>{q}</span>
-        <span className="material-icons text-muted transition-transform" style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}>expand_more</span>
+        <span className="material-icons text-muted transition-transform shrink-0" style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}>expand_more</span>
       </button>
       {open && <p className="pb-5 text-muted leading-relaxed">{a}</p>}
     </div>
