@@ -26,11 +26,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Announce bar */}
-      <div className="bg-sage-light text-sage text-center text-sm py-2 font-medium tracking-wide">
-        Now booking — May 2026
-      </div>
-
       <nav className="sticky top-0 z-50 bg-cream border-b border-border">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-24">
           {/* Logo */}
