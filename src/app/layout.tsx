@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Decode the hidden rules. Build your influence. Take control of your career trajectory.',
     url: 'https://mycareertherapist.com',
     siteName: 'My Career Therapist',
-    locale: 'en_GB',
+    locale: 'en_US',
     type: 'website',
   },
 }

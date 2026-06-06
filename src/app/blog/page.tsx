@@ -14,8 +14,12 @@ export default function Blog() {
         <h1 className="font-serif italic text-5xl lg:text-6xl text-charcoal mb-6 leading-tight">
           Practical career advice — from someone who&apos;s been on both sides of the table.
         </h1>
-        <p className="text-lg text-muted leading-relaxed">
+        <p className="text-lg text-muted leading-relaxed mb-6">
           Honest, experience-led articles on jobs, promotions, salary, layoffs and career change.
+        </p>
+        <p className="text-sm text-muted">
+          Long-form essays here. Shorter weekly playbooks go out by email —{' '}
+          <Link href="/subscribe" className="text-sage font-medium hover:underline">join the newsletter</Link>.
         </p>
       </section>
 
@@ -95,8 +99,28 @@ export default function Blog() {
         </section>
       )}
 
-      {/* Spacer when there's only a featured post */}
-      {rest.length === 0 && <div className="pb-16" />}
+      {/* When there's only the featured post, funnel readers to the newsletter
+          — fresher cadence than the blog. */}
+      {rest.length === 0 && (
+        <section className="max-w-3xl mx-auto px-6 pb-20">
+          <div className="bg-cream border border-border rounded-2xl p-8 md:p-10 text-center">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-sage mb-3">More coming</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-3 leading-tight">
+              The weekly playbook lands in your inbox.
+            </h2>
+            <p className="text-muted leading-relaxed max-w-xl mx-auto mb-6">
+              New essays land here every few weeks. The shorter, sharper stuff — frameworks, scripts, and the
+              one move I&apos;d make this week — goes out by email. Free, no fluff.
+            </p>
+            <Link
+              href="/subscribe"
+              className="inline-flex items-center gap-2 bg-charcoal text-cream px-7 py-3.5 rounded-full font-medium hover:bg-sage transition-colors"
+            >
+              Join the Newsletter <span className="material-icons text-base">arrow_right_alt</span>
+            </Link>
+          </div>
+        </section>
+      )}
 
       <FinalCTA />
     </>
